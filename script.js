@@ -1,13 +1,20 @@
 //  FUNCTION FOR TEMPERATURE CONVERTION
 function convertFahrToCelsius (x) {
-    if (typeof x === 'number'){
+    const num = Number(x)
+    let answer
+    if (!isNaN(num)){
         let result = (x-32)/1.8
-        return Number(result.toFixed(4))
+        answer = Number(result.toFixed(4))
+        console.log(answer)
+        return answer
       }else if (Array.isArray(x)) {
-        return `${x} is not a valid number but an array}`
+          answer = `${x} is not a valid number but an array`
+          console.log(answer)
+        return answer
     }else{
-        return `${JSON.stringify(x)} is not a valid number but a/an ${typeof x}`
-
+        answer = `${JSON.stringify(x)} is not a valid number but a/an ${typeof x}`
+        console.log(answer)
+      return answer
     }
 }
 
@@ -38,17 +45,27 @@ function mapFunc (element) {
         return element
     }   }
 function checkYuGiOh (e) {
+    const n = Number(e)
     array = []
-    if (typeof e === 'number'){
-        for (let i = 1; i <= e; i++) {
+    let validResult
+    let invalidResult
+    if (!isNaN(n)){
+        for (let i = 1; i <= n; i++) {
          array.push(i)
         }
      }else {
-         return `Invalid Parameter: ${JSON.stringify(e)} is meh`
+         invalidResult = `Invalid Parameter: ${JSON.stringify(e)}`
+         console.log(invalidResult)
+         return invalidResult
      }
-     console.log(array.map(mapFunc))
-
+     validResult =  array.map(mapFunc)
+     console.log(validResult);
+     return validResult;
 }
+
+
+
+
 
 
 
